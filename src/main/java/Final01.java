@@ -7,36 +7,47 @@ public class Final01 {
     public Final01() {
     }
 
-    public int getResult(int n) {
+    public String getResult(String n) {
+
+        String[] strArray = n.split("");
+        int[] intArray = new int[strArray.length];
+        for (int i = 0; i < strArray.length; i++) {
+            intArray[i] = Integer.parseInt(strArray[i]);
+        }
+        for (int i = 0; i < intArray.length; i++) {
+            System.out.print(intArray[i]);
+        }
+        System.out.println();
+        System.out.println(intArray.length);
+
+        compare(intArray.length - 1, intArray);
+
         String answer = "";
-        if (n < 10)
-            return n;
-
-        else {
-            String number = String.valueOf(n);
-            String[] strArray = number.split("");
-            int[] intArray = new int[strArray.length];
-            for (int i = 0; i < strArray.length; i++) {
-                intArray[i] = Integer.parseInt(strArray[i]);
-            }
-            for (int i = 0; i < intArray.length; i++) {
-                System.out.print(intArray[i]);
-            }
-            System.out.println();
-            System.out.println(intArray.length);
-            for (int i = intArray.length -1 ; i > 0; i--) {
-                if (intArray[i - 1] > intArray[i]) {
-                    intArray[i - 1]--;
-                    intArray[i] = 9;
-                }
-
-            }
-
-            for (int i = 0; i < intArray.length; i++) {
-                System.out.print(intArray[i]);
+        for (int i = 0; i < intArray.length; i++) {
+            System.out.print(intArray[i]);
+            if (intArray[i] != 0)
                 answer += intArray[i];
+        }
+        
+        return answer;
+    }
+
+    private void compare(int endIndex, int[] intArray) {
+
+        for (int i = 0; i < endIndex; i++) {
+            if (intArray[i] > intArray[i + 1]) {
+                intArray[i]--;
+                setNine(i + 1, intArray);
             }
         }
-        return Integer.parseInt(answer);
+        if (endIndex > 0)
+            compare(endIndex - 1, intArray);
     }
+
+    private void setNine(int startIndex, int[] intArray) {
+        for (int i = startIndex; i < intArray.length; i++) {
+            intArray[i] = 9;
+        }
+    }
+
 }
