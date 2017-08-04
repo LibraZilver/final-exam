@@ -1,15 +1,20 @@
 import org.junit.Test;
 
+import java.math.BigInteger;
+
 import static org.junit.Assert.assertEquals;
 
 public class Final01Test {
-    String N;
     Final01 final01 = new Final01();
 
     @Test
-    public void start_game_should_love_all() {
-        N = "8";
-        int actualResult = final01.getResult(N);
+    public void test01() {
+        int  actualResult = final01.getResult(8);
         assertEquals(8, actualResult);
+    }
+    @Test
+    public void test02() {
+        int  actualResult = final01.getResult(10);
+        assertEquals(9, actualResult);
     }
 }
