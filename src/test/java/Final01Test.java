@@ -23,4 +23,10 @@ public class Final01Test {
         int  actualResult = final01.getResult(132);
         assertEquals(129, actualResult);
     }
+
+    @Test
+    public void test04() {
+        int  actualResult = final01.getResult(1110);
+        assertEquals(999, actualResult);
+    }
 }
