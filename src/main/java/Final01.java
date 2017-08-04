@@ -8,7 +8,7 @@ public class Final01 {
     }
 
     public String getResult(String n) {
-
+        String answer = "";
         String[] strArray = n.split("");
         int[] intArray = new int[strArray.length];
         for (int i = 0; i < strArray.length; i++) {
@@ -22,13 +22,13 @@ public class Final01 {
 
         compare(intArray.length - 1, intArray);
 
-        String answer = "";
+
         for (int i = 0; i < intArray.length; i++) {
             System.out.print(intArray[i]);
             if (intArray[i] != 0)
                 answer += intArray[i];
         }
-        
+
         return answer;
     }
 

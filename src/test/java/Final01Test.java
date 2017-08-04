@@ -39,4 +39,16 @@ public class Final01Test {
         String  actualResult = final01.getResult("111111111111111110");
         assertEquals("99999999999999999", actualResult);
     }
+    @Test
+    public void test07() {
+        String  actualResult = final01.getResult("989999999999999999");
+        assertEquals("899999999999999999", actualResult);
+    }
+    @Test
+    public void test08() {
+        String  actualResult = final01.getResult("98");
+        assertEquals("89", actualResult);
+    }
+
+
 }
